@@ -9,11 +9,16 @@ import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.project.github_api.R
 import com.project.github_api.databinding.ActivityDetailBinding
 import com.project.github_api.ui.detail.viewpager.ViewPagerAdapter
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class DetailActivity : AppCompatActivity() {
 
     companion object{
         const val EXTRA_DETAIL = "extra_detail"
+        const val EXTRA_FAVORITE = "extra_favorite"
     }
 
     private lateinit var binding: ActivityDetailBinding
@@ -26,7 +31,8 @@ class DetailActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         val username = intent.getStringExtra(EXTRA_DETAIL)
-        modelView = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory()).get(DetailViewModel::class.java)
+        val idfavorite = intent.getIntExtra(EXTRA_FAVORITE, 0)
+        modelView = ViewModelProvider(this).get(DetailViewModel::class.java)
 
         modelView.setUserDetail(username.toString())
         modelView.getUserDetail().observe(this, {
@@ -56,8 +62,39 @@ class DetailActivity : AppCompatActivity() {
                 showLoading(true)
         })
 
+        var _isChecked = false
+        CoroutineScope(Dispatchers.IO).launch {
+            val count = modelView.checkFavorite(idfavorite)
+            withContext(Dispatchers.Main){
+                if(count != null){
+                    if(count > 0){
+                        binding.detailFavorite.isChecked = true
+                        _isChecked = true
+                    }
+                    else{
+                        binding.detailFavorite.isChecked = false
+                        _isChecked = false
+                    }
+                }
+            }
+        }
+
         val detail = Bundle()
         detail.putString(EXTRA_DETAIL, username)
+
+
+        binding.detailFavorite.setOnClickListener{
+            _isChecked = !_isChecked
+            if(_isChecked){
+                if (username != null) {
+                    modelView.addFavorite(username, idfavorite)
+                }
+            }
+            else{
+                modelView.removeFavorite(idfavorite)
+            }
+            binding.detailFavorite.isChecked = _isChecked
+        }
 
         val viewPager = ViewPagerAdapter(this, supportFragmentManager, detail)
         binding.apply {

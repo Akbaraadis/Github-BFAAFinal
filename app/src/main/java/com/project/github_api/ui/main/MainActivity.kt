@@ -4,7 +4,6 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.Settings
-import android.view.KeyEvent
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
@@ -38,6 +37,7 @@ class MainActivity : AppCompatActivity() {
             override fun onItemClicked(data: Users) {
                 val intent = Intent(this@MainActivity, DetailActivity::class.java)
                 intent.putExtra(DetailActivity.EXTRA_DETAIL, data.login)
+                intent.putExtra(DetailActivity.EXTRA_FAVORITE, data.id)
                 startActivity(intent)
             }
         })
