@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Github_API</string>
+    <string name="name">Name</string>
+    <string name="company">Company</string>
+    <string name="location">Location</string>
+    <string name="github_user">Github User</string>
+    <string name="repository">Repository</string>
+    <string name="followers">Followers</string>
+    <string name="following">Following</string>
+    <string name="_0">0</string>
+    <string name="search">Search</string>
+    <string name="pengguna_tidak_ditemukan">User Not Found</string>
+    <string name="change_language_setting">Change Language Setting</string>
+    <string name="detail_account">detail account</string>
+    <string name="logo">Logo Github</string>
+    <string name="avatar_user">avatar user</string>
+    <string name="line">line</string>
+</resources>

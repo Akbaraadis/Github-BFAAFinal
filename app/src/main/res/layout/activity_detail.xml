@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/grey_soft"
+    tools:context=".ui.detail.DetailActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fitsSystemWindows="false">
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="true"
+            app:expandedTitleGravity="center"
+            app:layout_scrollFlags="scroll">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/detail_card"
+                    android:layout_width="300dp"
+                    android:layout_height="150dp"
+                    android:layout_marginTop="20dp"
+                    app:cardBackgroundColor="@color/blue_card"
+                    app:cardCornerRadius="20dp"
+                    app:cardElevation="20dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <de.hdodenhof.circleimageview.CircleImageView
+                            android:id="@+id/iv_detail_avatar"
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginTop="20dp"
+                            android:src="@drawable/github_logo"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/tv_detail_name"
+                            style="@style/TextDetail"
+                            android:layout_width="150dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/iv_detail_avatar"
+                            app:layout_constraintTop_toTopOf="parent"
+                            tools:text="@string/name" />
+
+                        <TextView
+                            android:id="@+id/tv_detail_company"
+                            style="@style/TextDetailBody"
+                            android:layout_width="150dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:maxLines="1"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/iv_detail_avatar"
+                            app:layout_constraintTop_toBottomOf="@id/tv_detail_name"
+                            tools:text="@string/company" />
+
+                        <TextView
+                            android:id="@+id/tv_detail_location"
+                            style="@style/TextDetailBody"
+                            android:layout_width="150dp"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/iv_detail_avatar"
+                            app:layout_constraintTop_toBottomOf="@id/tv_detail_company"
+                            tools:text="@string/location" />
+
+                        <TextView
+                            style="@style/TextDetailBody"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:text="@string/github_user"
+                            app:layout_constraintEnd_toEndOf="@id/iv_detail_avatar"
+                            app:layout_constraintStart_toStartOf="@id/iv_detail_avatar"
+                            app:layout_constraintTop_toBottomOf="@id/iv_detail_avatar" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <ImageView
+                    android:contentDescription="@string/detail_account"
+                    android:id="@+id/detail_account"
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp"
+                    android:layout_marginTop="30dp"
+                    android:background="@color/white"
+                    app:layout_constraintTop_toBottomOf="@id/detail_card" />
+
+                <ProgressBar
+                    android:id="@+id/detail_progress"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/detail_account"
+                    app:layout_constraintBottom_toBottomOf="@id/detail_account"/>
+
+                <androidx.cardview.widget.CardView
+                    android:visibility="gone"
+                    android:id="@+id/detail_constraint_cardview"
+                    android:layout_width="350dp"
+                    android:layout_height="100dp"
+                    android:backgroundTint="@color/blue_card"
+                    app:cardCornerRadius="10dp"
+                    app:layout_constraintBottom_toBottomOf="@id/detail_account"
+                    app:layout_constraintEnd_toEndOf="@id/detail_account"
+                    app:layout_constraintStart_toStartOf="@id/detail_account"
+                    app:layout_constraintTop_toTopOf="@id/detail_account">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/detail_constraint_card"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/tv_header_repository"
+                            style="@style/TextDetail"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:text="@string/repository"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/tv_header_followers"
+                            style="@style/TextDetail"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:text="@string/followers"
+                            app:layout_constraintEnd_toStartOf="@id/tv_header_repository"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/tv_header_following"
+                            style="@style/TextDetail"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:text="@string/following"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@id/tv_header_repository"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/tv_detail_repository"
+                            style="@style/TextDetailCard"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/tv_header_repository"
+                            tools:text="@string/_0" />
+
+                        <TextView
+                            android:id="@+id/tv_detail_followers"
+                            style="@style/TextDetailCard"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toStartOf="@id/tv_header_repository"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/tv_header_repository"
+                            tools:text="@string/_0" />
+
+                        <TextView
+                            android:id="@+id/tv_detail_following"
+                            style="@style/TextDetailCard"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@id/tv_header_repository"
+                            app:layout_constraintTop_toBottomOf="@id/tv_header_repository"
+                            tools:text="@string/_0" />
+
+                        <ImageView
+                            android:contentDescription="@string/line"
+                            android:layout_width="2dp"
+                            android:layout_height="40dp"
+                            android:src="@color/white"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toStartOf="@id/tv_header_repository"
+                            app:layout_constraintStart_toEndOf="@id/tv_header_followers"
+                            app:layout_constraintTop_toBottomOf="@id/tv_header_repository" />
+
+                        <ImageView
+                            android:contentDescription="@string/line"
+                            android:layout_width="2dp"
+                            android:layout_height="40dp"
+                            android:src="@color/white"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toStartOf="@id/tv_header_following"
+                            app:layout_constraintStart_toEndOf="@id/tv_header_repository"
+                            app:layout_constraintTop_toBottomOf="@id/tv_header_repository" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.cardview.widget.CardView>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/detail_tab"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/blue_card"
+            app:layout_constraintTop_toBottomOf="@id/detail_account"
+            app:tabTextColor="@color/white" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/detail_viewpager"
+        style="@style/TextDetail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
+        />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

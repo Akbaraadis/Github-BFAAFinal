@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Github_API</string>
+    <string name="name">Nama</string>
+    <string name="company">Perusahaan</string>
+    <string name="location">Lokasi</string>
+    <string name="github_user">Github</string>
+    <string name="repository">Repositori</string>
+    <string name="followers">Pengikut</string>
+    <string name="following">Mengikuti</string>
+    <string name="_0">0</string>
+    <string name="search">Mencari</string>
+    <string name="pengguna_tidak_ditemukan">Pengguna Tidak Ditemukan</string>
+    <string name="change_language_setting">Ubah Pengaturan Bahasa</string>
+    <string name="detail_account">detail akun</string>
+    <string name="logo">Logo Github</string>
+    <string name="avatar_user">foto profil</string>
+    <string name="line">garis</string>
+</resources>
