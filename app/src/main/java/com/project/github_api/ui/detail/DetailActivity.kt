@@ -19,6 +19,8 @@ class DetailActivity : AppCompatActivity() {
     companion object{
         const val EXTRA_DETAIL = "extra_detail"
         const val EXTRA_FAVORITE = "extra_favorite"
+        const val EXTRA_AVATAR = "extra_avatar"
+        const val EXTRA_URL = "extra_url"
     }
 
     private lateinit var binding: ActivityDetailBinding
@@ -32,6 +34,9 @@ class DetailActivity : AppCompatActivity() {
 
         val username = intent.getStringExtra(EXTRA_DETAIL)
         val idfavorite = intent.getIntExtra(EXTRA_FAVORITE, 0)
+        val avatar_url = intent.getStringExtra(EXTRA_AVATAR)
+        val html_url = intent.getStringExtra(EXTRA_URL)
+
         modelView = ViewModelProvider(this).get(DetailViewModel::class.java)
 
         modelView.setUserDetail(username.toString())
@@ -86,9 +91,7 @@ class DetailActivity : AppCompatActivity() {
         binding.detailFavorite.setOnClickListener{
             _isChecked = !_isChecked
             if(_isChecked){
-                if (username != null) {
-                    modelView.addFavorite(username, idfavorite)
-                }
+                modelView.addFavorite(username.toString(), idfavorite, avatar_url.toString(), html_url.toString())
             }
             else{
                 modelView.removeFavorite(idfavorite)

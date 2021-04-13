@@ -8,5 +8,7 @@ import java.io.Serializable
 data class UsersFavorite(
     val login: String,
     @PrimaryKey
-    val id: Int
+    val id: Int,
+    val avatar_url : String,
+    val html_url: String
 ):Serializable

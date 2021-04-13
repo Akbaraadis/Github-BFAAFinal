@@ -14,6 +14,7 @@ import com.project.github_api.R
 import com.project.github_api.data.model.Users
 import com.project.github_api.databinding.ActivityMainBinding
 import com.project.github_api.ui.detail.DetailActivity
+import com.project.github_api.ui.favorite.FavoriteActivity
 
 class MainActivity : AppCompatActivity() {
 
@@ -36,8 +37,11 @@ class MainActivity : AppCompatActivity() {
         adapter.setOnItemClickCallback(object : MainAdapter.OnItemClickCallback{
             override fun onItemClicked(data: Users) {
                 val intent = Intent(this@MainActivity, DetailActivity::class.java)
-                intent.putExtra(DetailActivity.EXTRA_DETAIL, data.login)
-                intent.putExtra(DetailActivity.EXTRA_FAVORITE, data.id)
+                intent.apply {
+                    putExtra(DetailActivity.EXTRA_DETAIL, data.login)
+                    putExtra(DetailActivity.EXTRA_FAVORITE, data.id)
+                    putExtra(DetailActivity.EXTRA_AVATAR, data.avatar_url)
+                }
                 startActivity(intent)
             }
         })
@@ -106,12 +110,15 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.menu_language, menu)
+        menuInflater.inflate(R.menu.menu_option, menu)
         return super.onCreateOptionsMenu(menu)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (item.itemId == R.id.change_language) startActivity(Intent(Settings.ACTION_LOCALE_SETTINGS))
+        if (item.itemId == R.id.look_favorite) startActivity(Intent(this, FavoriteActivity::class.java).also {
+            startActivity(it)
+        })
         return super.onOptionsItemSelected(item)
     }
 }
