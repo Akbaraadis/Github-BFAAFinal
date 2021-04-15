@@ -11,9 +11,12 @@
     <string name="_0">0</string>
     <string name="search">Mencari</string>
     <string name="pengguna_tidak_ditemukan">Pengguna Tidak Ditemukan</string>
-    <string name="change_language_setting">Ubah Pengaturan Bahasa</string>
+    <string name="change_language_setting">Bahasa</string>
     <string name="detail_account">detail akun</string>
     <string name="logo">Logo Github</string>
     <string name="avatar_user">foto profil</string>
     <string name="line">garis</string>
+    <string name="reminder">Pengingat</string>
+    <string name="on">Aktif</string>
+    <string name="off">Tidak Aktif</string>
 </resources>

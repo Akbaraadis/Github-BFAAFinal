@@ -15,6 +15,7 @@ import com.project.github_api.data.model.Users
 import com.project.github_api.databinding.ActivityMainBinding
 import com.project.github_api.ui.detail.DetailActivity
 import com.project.github_api.ui.favorite.FavoriteActivity
+import com.project.github_api.ui.setting.SettingActivity
 
 class MainActivity : AppCompatActivity() {
 
@@ -116,9 +117,12 @@ class MainActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (item.itemId == R.id.change_language) startActivity(Intent(Settings.ACTION_LOCALE_SETTINGS))
-        if (item.itemId == R.id.look_favorite) startActivity(Intent(this, FavoriteActivity::class.java).also {
+        if (item.itemId == R.id.reminder) Intent(this, SettingActivity::class.java).also {
             startActivity(it)
-        })
+        }
+        if (item.itemId == R.id.look_favorite) Intent(this, FavoriteActivity::class.java).also {
+            startActivity(it)
+        }
         return super.onOptionsItemSelected(item)
     }
 }

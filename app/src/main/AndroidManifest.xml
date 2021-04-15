@@ -3,6 +3,8 @@
     package="com.project.github_api">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.VIBRATE" />
 
     <application
         android:allowBackup="true"
@@ -11,7 +13,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Github_API">
-        <activity android:name=".ui.favorite.FavoriteActivity"></activity>
+
+        <receiver
+            android:name=".data.receiver.ReminderReceiver"
+            android:enabled="true"
+            android:exported="true"/>
+
+        <activity android:name=".ui.setting.SettingActivity" />
+        <activity android:name=".ui.favorite.FavoriteActivity" />
         <activity android:name=".ui.detail.DetailActivity" />
         <activity android:name=".ui.splash.SplashActivity">
             <intent-filter>

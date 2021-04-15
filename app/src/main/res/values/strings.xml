@@ -10,9 +10,12 @@
     <string name="_0">0</string>
     <string name="search">Search</string>
     <string name="pengguna_tidak_ditemukan">User Not Found</string>
-    <string name="change_language_setting">Change Language Setting</string>
+    <string name="change_language_setting">Language</string>
     <string name="detail_account">detail account</string>
     <string name="logo">Logo Github</string>
     <string name="avatar_user">avatar user</string>
     <string name="line">line</string>
+    <string name="reminder">Reminder</string>
+    <string name="on">On</string>
+    <string name="off">Off</string>
 </resources>
